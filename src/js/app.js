@@ -1,10 +1,19 @@
-import { CardWidget } from "./CardWidget";
+import Widget from "./Widget.js";
 
 document.addEventListener('DOMContentLoaded', () => { 
-  const container = document.querySelector('.container');
-  const form = new CardWidget(container);
-  
-  
-  form.bindToDOM();
 
+  const button = document.querySelector('.button');
+  const form = document.querySelector('.form');
+  
+
+  button.addEventListener('click', () => {
+    
+    
+  });
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    console.log('submit');
+  });
 });
