@@ -2,6 +2,20 @@ import Widget from "./Widget.js";
 
 
 const form = document.querySelector('.form');
+const errors = {
+  login: {
+    valueMissing: 'Представьтесь, пожалуйста!',
+  },
+  email: {
+    valueMissing: 'Нам потребуется электронная почта...',
+    typeMismatch: 'А это вообще электронная почта?',
+  },
+  'credit-card': {
+    valueMissing: 'Представьте нам данные своей кредитной карты, это безопасно, честно',
+    patternMismatch: 'Не удалось снять деньги с вашей кредитной карты:(',
+  },
+}
+
 document.addEventListener('DOMContentLoaded', () => { 
   
 
@@ -23,10 +37,16 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log('invalid');    
     }
 
-    const elements = form.elements;
-    
+    const elements = Array.from(form.elements);
     elements.forEach((el) => {
-      console.dir(el);
+      if (!el.name) return;
+      for (const key in el.validity) {
+        if (el.validity[key]){
+          console.dir(el);
+          console.dir(errors[el.name][key]);
+        }
+      }
+     
     });
   
     console.log('submit');
