@@ -6,7 +6,7 @@ export default class Widget {
   showWidget(message, element) {
     const widgetElement = document.createElement('div');
 
-    widgetElement.classList.add('popover');
+    widgetElement.classList.add('popover', 'p', 'popover-title', 'popover-text');
     widgetElement.textContent = message;
 
     const id = performance.now(); // время от открытия страницы
@@ -39,4 +39,6 @@ export default class Widget {
 
     this._widgets = this._widgets.filter(t => { t.id !== id });
   }
+
+  
 }

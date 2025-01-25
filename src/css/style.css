@@ -12,7 +12,7 @@
 .btn {
   position: relative;
   padding: 10px;
-  margin-left: 20px;
+  margin: 200px;
 
   background-color: #dc3545;
   color: white;
@@ -32,12 +32,13 @@
 
 .popover { 
   position:absolute;
-  top: 155px;
-  left: 15px;
+  /* top: 155px;
+  left: 15px; */
 
   width: 210px;
-  height: auto;
+  height: 70px;
 
+  padding: 3px;
   border: solid 1px;
   border-radius: 5px;
   border-color: gray;
