@@ -17,27 +17,26 @@ describe("Page start", () => {
   test("Popover should render on page start", async () => {
     await page.goto("http://localhost:8080/");
 
-    await page.waitForSelector('.popover');
+    await page.waitForSelector(".popover");
   });
 
-  test('click button should add ._hidden class', async () => {
+  test("click button should add ._hidden class", async () => {
     jest.setTimeout(20000);
-    await page.goto('http://localhost:8080');
+    await page.goto("http://localhost:8080");
 
-    await page.waitForSelector('.btn1');
+    await page.waitForSelector(".btn1");
 
-    const button = await page.$('.btn1');    
+    const button = await page.$(".btn1");
     await button.click();
 
-    await page.waitForSelector('.popover');
+    await page.waitForSelector(".popover");
 
-    const popover = await page.$('.popover');
-    const hasClassHidden = await page.evaluate(element => {  
-      return element.classList.contains('_hidden');  
-    }, popover);  
-    
+    const popover = await page.$(".popover");
+    const hasClassHidden = await page.evaluate((element) => {
+      return element.classList.contains("_hidden");
+    }, popover);
 
-    expect(hasClassHidden).toBe(false)
+    expect(hasClassHidden).toBe(false);
   }, 20000);
 
   afterEach(async () => {
